@@ -1,0 +1,39 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.5'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id "org.sonarqube" version "3.5.0.2730"
+}
+
+group = 'com.Spring.Datajpa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//Swagger
+	//implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.8'
+	//implementation group: 'org.webjars', name: 'webjars-locator', version: '0.46'
+	//implementation group: 'io.github.classgraph', name: 'classgraph', version: '4.8.157'
+
+
+	//Grafana and promotheuus
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.7.10'
+	implementation group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: '1.10.2'
+	
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
